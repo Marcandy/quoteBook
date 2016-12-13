@@ -1,6 +1,10 @@
 angular.module('quoteBook')
   .service('dataService', function () {
 
+    this.getQuotes = function () {
+      return quotes;
+    }
+
     
 
     var quotes =  [
