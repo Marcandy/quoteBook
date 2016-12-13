@@ -1,7 +1,14 @@
 angular.module('quoteBook')
-  .controller('mainCtrl', function ($scope) {
+  .controller('mainCtrl', function ($scope, dataService) {
 
-    $scope.test = 'working';
+    $scope.getQuotes = function () {
+      $scope.quotes = dataService.getQuotes();
+    }
 
-    
+    $scope.getQuotes();
+
+    $scope.deleteQuote = function(text) {
+      dataService.removeData(text);
+    }
+
   })

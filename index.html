@@ -9,7 +9,21 @@
 </head>
 <body ng-controller='mainCtrl'>
 
-{{test}}
+<input type="text" placeholder="quote" ng-model="qText"/>
+<input type="text" placeholder="author" ng-model="qAuthor"/>
+<button type="button" ng-click="">Add Quote</button>
+
+<br/>
+<input type="text" placeholder="filter"/>
+
+
+<ul>
+  <li ng-repeat="quote in quotes">
+    <h4>{{quote.author}}:</h4>
+    <p>{{quote.text}}</p>
+    <button ng-click="deleteQuote(quote.text)">Delete</button>
+  </li>
+</ul>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.js" charset="utf-8"></script>
