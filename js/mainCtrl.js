@@ -13,5 +13,8 @@ angular.module('quoteBook')
 
     $scope.addQuote = function (obj) {
       dataService.addData(obj);
+      $scope.qText = '';
+      $scope.qAuthor = '';
     }
+    
   })
