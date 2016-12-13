@@ -5,6 +5,14 @@ angular.module('quoteBook')
       return quotes;
     }
 
+    this.addData = function (obj) {
+      if (obj.text && obj.author) {
+        quotes.push(obj);
+        return true;
+      }
+      return false;
+    }
+
     
 
     var quotes =  [
