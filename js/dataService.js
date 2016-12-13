@@ -13,7 +13,13 @@ angular.module('quoteBook')
       return false;
     }
 
-    
+    this.removeData = function (text) {
+      for (var i = 0; i < quotes.length; i++) {
+        if (quotes[i].text.toLowerCase() === text.toLowerCase()) {
+          quotes.splice(i--, 1); // I guess it removes i then decrement it
+        }
+      }
+    }
 
     var quotes =  [
     { text: 'Life isn\'t about getting and having, it\'s about giving and being.', author: 'Kevin Kruse'},
