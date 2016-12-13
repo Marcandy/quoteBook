@@ -8,11 +8,11 @@ angular.module('quoteBook')
     this.addData = function (obj) {
       if (obj.text && obj.author) {
         quotes.push(obj);
-        return true;
+        return true; //return true as confirmation
       }
       return false;
     }
-d
+
     this.removeData = function (text) {
       for (var i = 0; i < quotes.length; i++) {
         if (quotes[i].text.toLowerCase() === text.toLowerCase()) {
