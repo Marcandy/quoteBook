@@ -12,7 +12,7 @@ angular.module('quoteBook')
       }
       return false;
     }
-
+d
     this.removeData = function (text) {
       for (var i = 0; i < quotes.length; i++) {
         if (quotes[i].text.toLowerCase() === text.toLowerCase()) {
