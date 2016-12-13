@@ -11,4 +11,7 @@ angular.module('quoteBook')
       dataService.removeData(text);
     }
 
+    $scope.addQuote = function (obj) {
+      dataService.addData(obj);
+    }
   })

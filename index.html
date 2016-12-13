@@ -11,9 +11,11 @@
 
 <input type="text" placeholder="quote" ng-model="qText"/>
 <input type="text" placeholder="author" ng-model="qAuthor"/>
-<button type="button" ng-click="">Add Quote</button>
+<button type="button" ng-click="addQuote({text: qText,
+author: qAuthor})">Add Quote</button>
 
 <br/>
+
 <input type="text" placeholder="filter"/>
 
 
