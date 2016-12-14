@@ -1,26 +1,6 @@
 angular.module('quoteBook')
   .service('dataService', function () {
 
-    this.getQuotes = function () {
-      return quotes;
-    }
-
-    this.addData = function (obj) {
-      if (obj.text && obj.author) {
-        quotes.push(obj);
-        return true; //return true as confirmation
-      }
-      return false;
-    }
-
-    this.removeData = function (text) {
-      for (var i = 0; i < quotes.length; i++) {
-        if (quotes[i].text.toLowerCase() === text.toLowerCase()) {
-          quotes.splice(i--, 1); // I guess it removes i then decrement it
-        }
-      }
-    }
-
     var quotes =  [
     { text: 'Life isn\'t about getting and having, it\'s about giving and being.', author: 'Kevin Kruse'},
     { text: 'Whatever the mind of man can conceive and believe, it can achieve', author: 'Napoleon Hill'},
@@ -30,5 +10,53 @@ angular.module('quoteBook')
     { text: 'Life is what happens to you while you\'re busy making other plans.', author: 'John Lennon'},
     { text: 'What even is a jQuery?', author: 'Tyler S. McGinnis'}
   ];
+
+    function setLocal() {
+      // if (localStorage['quotes']['length'] < 6) {
+      //   return quotes;
+      // }
+      // if (localStorage.getItem('quotes'))
+
+        quotes = JSON.parse(localStorage['quotes'])
+
+
+    }
+
+    this.getQuotes = function () {
+      setLocal() // set local upon load
+      return quotes;
+    }
+
+
+
+
+    this.addData = function (obj) {
+      if (obj.text && obj.author) {
+        quotes.push(obj);
+        saveLocal();
+
+        return true; //return true as confirmation
+      }
+      return false;
+    }
+
+    this.removeData = function (text) {
+      for (var i = 0; i < quotes.length; i++) {
+        if (quotes[i].text.toLowerCase() === text.toLowerCase()) {
+          quotes.splice(i--, 1);
+
+           // I guess it removes i then decrement it
+
+        }
+      }
+      saveLocal();
+    }
+
+
+
+ function saveLocal () {
+    localStorage['quotes'] = JSON.stringify(quotes);//to b resused each time for updating the localStorage
+  }
+
 
   })

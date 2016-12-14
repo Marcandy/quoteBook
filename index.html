@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://use.fontawesome.com/9e617c104b.js"></script>
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
@@ -11,17 +12,21 @@
 
 <input type="text" placeholder="quote" ng-model="qText"/>
 <input type="text" placeholder="author" ng-model="qAuthor"/>
-<button type="button" ng-click="">Add Quote</button>
+<button type="button" ng-click="addQuote({text: qText,
+author: qAuthor})">Add Quote</button>
 
 <br/>
-<input type="text" placeholder="filter"/>
+<br/>
+<input type="text" placeholder="filter" ng-model="searchBy"/>
 
 
-<ul>
-  <li ng-repeat="quote in quotes">
-    <h4>{{quote.author}}:</h4>
-    <p>{{quote.text}}</p>
-    <button ng-click="deleteQuote(quote.text)">Delete</button>
+<ul >
+  <li class="quotes" ng-repeat="quote in quotes | filter: searchBy track by $index " >
+
+
+    <p class="text"><em>"{{quote.text}}"</em></p>
+    <strong><h4>{{quote.author}}:</h4></strong>
+    <button class="delete" ng-click="deleteQuote(quote.text)"><i class="fa fa-times-circle-o fa-3x" aria-hidden="true"></i></button>
   </li>
 </ul>
 
