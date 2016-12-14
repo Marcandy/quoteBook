@@ -19,8 +19,8 @@ author: qAuthor})">Add Quote</button>
 <input type="text" placeholder="filter" ng-model="searchBy"/>
 
 
-<ul>
-  <li ng-repeat="quote in quotes | filter: searchBy" >
+<ul >
+  <li class="quotes" ng-repeat="quote in quotes | filter: searchBy track by $index " >
     <h4>{{quote.author}}:</h4>
     <p>{{quote.text}}</p>
     <button ng-click="deleteQuote(quote.text)">Delete</button>

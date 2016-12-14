@@ -13,6 +13,9 @@ angular.module('quoteBook')
 
     $scope.addQuote = function (obj) {
       dataService.addData(obj);
+      // dataService.setLocal();
+      console.log(dataService.getQuotes());
+      $scope.getQuotes();
       $scope.qText = '';
       $scope.qAuthor = '';
     }
