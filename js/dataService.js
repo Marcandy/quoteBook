@@ -18,7 +18,7 @@ angular.module('quoteBook')
       // if (localStorage.getItem('quotes'))
 
         quotes = JSON.parse(localStorage['quotes'])
-d
+
 
     }
 
