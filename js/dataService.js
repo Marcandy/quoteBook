@@ -12,9 +12,13 @@ angular.module('quoteBook')
   ];
 
     function setLocal() {
-      if (localStorage.getItem('quotes')) {
+      // if (localStorage['quotes']['length'] < 6) {
+      //   return quotes;
+      // }
+      // if (localStorage.getItem('quotes'))
+
         quotes = JSON.parse(localStorage['quotes'])
-      }
+
 
     }
 
